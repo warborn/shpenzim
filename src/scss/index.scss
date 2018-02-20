@@ -1,0 +1,24 @@
+@import './variables.scss';
+@import './components/auth-info.scss';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fff;
+  font-family: 'Mukta Mahee', sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10%;
+  
+  .title {
+    font-family: 'Lobster', cursive;
+    color: $primary-color;
+    margin: 0;
+  }
+}

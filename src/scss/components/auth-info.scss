@@ -1,0 +1,39 @@
+.auth-info {
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .user {
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+    .photo { 
+      width: 35px; 
+      border-radius: 50px;
+      display: block;
+      margin-right: 10px;
+    }
+
+    .username {
+      color: $gray-dark;
+    }
+  }
+
+  .action {
+    transition: all 0.3s linear;
+    background-color: transparent;
+    border: 2px solid rgb(221, 221, 221);
+    border-radius: 5px;
+    color: #ee8f66;
+    font-size: 0.95rem;
+    font-weight: bold;
+    padding: 3px 15px;
+
+    &:hover {
+      background-color: #ee8f66;
+      color: #fff;
+      border-color: #ee8f66;
+    }
+  }
+}
