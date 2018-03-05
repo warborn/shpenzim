@@ -1,38 +1,57 @@
 import React, { Component } from 'react';
 import AddProductForm from './AddProductForm';
+import Product from './Product';
 
 class Category extends Component {
   constructor() {
     super();
 
     this.state = {
-      isEditting: false
+      isEditing: false
     };
   }
 
+  componentDidUpdate() {
+    if(this.name) {
+      this.name.focus();
+    }
+  }
+
   handleBlur = () => {
-    this.setState({ isEditting: false });
+    this.setState({ isEditing: false });
     if(this.name.value !== '') {
       this.props.updateCategory(this.props.index, this.name.value);
     }
   }
 
   handleClick = () => {
-    this.setState({ isEditting: true });
+    this.setState({ isEditing: true });
   }
 
   handleKeyPress = (e) => {
     if(e.key === 'Enter' && this.name.value !== '') {
-      this.setState({ isEditting: false });
+      this.setState({ isEditing: false });
       this.props.updateCategory(this.props.index, this.name.value);
     }
+  }
+
+  renderProduct = (key) => {
+    return (
+      <li key={key}>
+        <Product 
+          {...this.props.products[key]} 
+          category={this.props.index} 
+          index={key} 
+          updateProduct={this.props.updateProduct} />
+      </li>
+    )
   }
 
   render() {
     return (
       <div className="category">
         {
-          this.state.isEditting 
+          this.state.isEditing 
             ? <input 
                 type="text" 
                 defaultValue={this.props.name}
@@ -47,7 +66,7 @@ class Category extends Component {
           {
             Object
               .keys(this.props.products)
-              .map(prodKey => <li key={prodKey}>{this.props.products[prodKey].name} ${this.props.products[prodKey].price}</li>)
+              .map(this.renderProduct)
           }
         </ul>
         <AddProductForm 
