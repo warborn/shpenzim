@@ -26,6 +26,13 @@ class App extends Component {
     this.setState({ categories });
   }
 
+  addProduct = (key, product) => {
+    const categories = {...this.state.categories};
+    const timestamp = Date.now();
+    categories[key].products[`product-${timestamp}`] = product;
+    this.setState({ categories });
+  }
+
   updateCategory = (key, updatedName) => {
     const categories = {...this.state.categories};
     categories[key].name = updatedName;
@@ -49,6 +56,7 @@ class App extends Component {
           <Categories 
             categories={categories}
             addCategory={this.addCategory}
+            addProduct={this.addProduct}
             updateCategory={this.updateCategory}
             removeCategory={this.removeCategory} />
         </div>

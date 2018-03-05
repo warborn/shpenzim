@@ -12,6 +12,7 @@ class Categories extends Component {
         index={key} 
         name={name} 
         products={products}
+        addProduct={this.props.addProduct}
         updateCategory={this.props.updateCategory}
         removeCategory={this.props.removeCategory} />
     )

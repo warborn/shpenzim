@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import AddProductForm from './AddProductForm';
 
 class Category extends Component {
   constructor() {
@@ -46,9 +47,12 @@ class Category extends Component {
           {
             Object
               .keys(this.props.products)
-              .map(prodKey => <li key={prodKey}>{this.props.products[prodKey].name} {this.props.products[prodKey].price}</li>)
+              .map(prodKey => <li key={prodKey}>{this.props.products[prodKey].name} ${this.props.products[prodKey].price}</li>)
           }
         </ul>
+        <AddProductForm 
+          category={this.props.index}
+          addProduct={this.props.addProduct} />
       </div>
     )
   }
