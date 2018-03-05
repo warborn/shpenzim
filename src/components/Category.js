@@ -43,6 +43,7 @@ class Category extends Component {
           category={this.props.index} 
           index={key} 
           updateProduct={this.props.updateProduct} />
+        <button onClick={() => this.props.removeProduct(this.props.index, key)}>&times;</button>
       </li>
     )
   }

@@ -51,6 +51,13 @@ class App extends Component {
     delete categories[key];
     this.setState({ categories });
   }
+
+  removeProduct = (key, productKey) => {
+    const categories = {...this.state.categories};
+    // categories[key].products[productKey] = null; // For firebase
+    delete categories[key].products[productKey];
+    this.setState({ categories });
+  }
   
   render() {
     const { categories } = this.state;
@@ -65,7 +72,8 @@ class App extends Component {
             addProduct={this.addProduct}
             updateCategory={this.updateCategory}
             updateProduct={this.updateProduct}
-            removeCategory={this.removeCategory} />
+            removeCategory={this.removeCategory}
+            removeProduct={this.removeProduct} />
         </div>
       </div>
     );
