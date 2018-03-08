@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
 import Categories from './components/Categories';
+import Calendar from './components/Calendar';
 import sampleCategories from './sampleCategories';
 
 class App extends Component {
@@ -74,6 +75,7 @@ class App extends Component {
             updateProduct={this.updateProduct}
             removeCategory={this.removeCategory}
             removeProduct={this.removeProduct} />
+          <Calendar />
         </div>
       </div>
     );
